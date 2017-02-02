@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+    <h2>Playlist Item</h2>
+    <hr/>
+
+    <ul>
+    <ui:repeat value="#{playlistItem.getResult().getItems()}" var="item">
+        <li>#{item.getSnippet().getTitle()}</li>
+    </ui:repeat>
+    </ul>
+
+    <h:form>
+        <h:commandButton action="playlist" value="Volver" />
+    </h:form>
+
+</h:body>
+</html>
