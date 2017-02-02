@@ -1,13 +1,13 @@
 package youtube.models;
 
 public class ContentDetails {
-    private int itemCount;
+    private Integer itemCount;
 
-    public int getItemCount() {
+    public Integer getItemCount() {
         return itemCount;
     }
 
-    public void setItemCount(int itemCount) {
+    public void setItemCount(Integer itemCount) {
         this.itemCount = itemCount;
     }
 }

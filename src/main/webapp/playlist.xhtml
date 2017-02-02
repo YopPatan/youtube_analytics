@@ -19,19 +19,15 @@
                 </h:commandLink>
             </h:form>
         </h:column>
+        <h:column>
+            <f:facet name="header">Videos</f:facet>
+            #{item.getContentDetails().getItemCount()}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Fecha Publicacion</f:facet>
+            #{item.getSnippet().getPublishedAt()}
+        </h:column>
     </h:dataTable>
-
-    <ul>
-    <ui:repeat value="#{playlist.getResult().getItems()}" var="item">
-        <li>
-            <h:form>
-                <h:commandLink action="playlist_item" value="#{item.getSnippet().getTitle()}">
-                    <f:param name="playlistItemId" value="#{item.getId()}" />
-                </h:commandLink>
-            </h:form>
-        </li>
-    </ui:repeat>
-    </ul>
 
 </h:body>
 </html>

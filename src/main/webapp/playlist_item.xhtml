@@ -9,11 +9,20 @@
     <h2>Playlist Item</h2>
     <hr/>
 
-    <ul>
-    <ui:repeat value="#{playlistItem.getResult().getItems()}" var="item">
-        <li>#{item.getSnippet().getTitle()}</li>
-    </ui:repeat>
-    </ul>
+    <h:dataTable value="#{playlistItem.getResult().getItems()}" var="item">
+        <h:column>
+            <f:facet name="header">Pos</f:facet>
+            #{item.getSnippet().getPosition()}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Titulo</f:facet>
+            #{item.getSnippet().getTitle()}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Descripcion</f:facet>
+            #{item.getSnippet().getDescription()}
+        </h:column>
+    </h:dataTable>
 
     <h:form>
         <h:commandButton action="playlist" value="Volver" />
