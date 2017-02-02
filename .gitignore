@@ -1,3 +1,4 @@
 .idea
 target
 youtube_analytics.iml
+src/main/resources/config.properties
