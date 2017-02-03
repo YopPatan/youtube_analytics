@@ -6,22 +6,18 @@ import org.springframework.web.client.RestTemplate;
 import youtube.models.Result;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import java.io.InputStream;
 import java.util.Properties;
 
-@ManagedBean(name = "playlistItem", eager = true)
+@ManagedBean(name = "video", eager = true)
 @RequestScoped
-public class PlaylistItem {
+public class Video {
 
-    private Result result;
     private Properties prop;
+    private Result result;
 
-    @ManagedProperty(value="#{param.playlistItemId}")
-    private String playlistItemId;
-
-    public PlaylistItem() throws Exception {
+    public Video() throws Exception {
         prop = new Properties();
         InputStream file = getClass().getClassLoader().getResourceAsStream("config.properties");
         prop.load(file); // Lanza Exception
@@ -29,34 +25,25 @@ public class PlaylistItem {
 
     public Result getResult() throws Exception {
         if (this.result == null) {
-            this.result = this.getPlaylistItem();
+            this.result = this.getVideo();
         }
-        return this.result;
+        return result;
     }
 
     public void setResult(Result result) {
         this.result = result;
     }
 
-    public String getPlaylistItemId() {
-        return playlistItemId;
-    }
-
-    public void setPlaylistItemId(String playlistItemId) {
-        this.playlistItemId = playlistItemId;
-    }
-
-    public Result getPlaylistItem() throws Exception {
+    public Result getVideo() throws Exception {
         URIBuilder uri = new URIBuilder();
         uri.setScheme("https");
-        uri.setHost("www.googleapis.com/youtube/v3/playlistItems");
+        uri.setHost("www.googleapis.com/youtube/v3/videos");
         uri.setParameter("key", prop.getProperty("youtube_key"));
-        uri.setParameter("playlistId", playlistItemId);
-        uri.setParameter("part", "snippet");
-        uri.setParameter("maxResults", "50");
+        uri.setParameter("id", "vKoTs_gMRbo");
+        uri.setParameter("part", "snippet,contentDetails");
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Result> response = restTemplate.getForEntity(uri.toString(), Result.class, 12L);
+        ResponseEntity<Result> response = restTemplate.getForEntity(uri.build(), Result.class); // Lanza Exception
         result = response.getBody();
 
         return result;

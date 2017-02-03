@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Project Name</title>
+    <meta name="author" content="The Author"></meta>
+</h:head>
+
+<h:body>
+    <h2>Video</h2>
+    <hr/>
+
+    <ui:param name="item" value="#{video.getResult().getItems()[0]}" />
+    <b:container>
+        <b:row>
+            <b:column col-md="4">Nombre</b:column>
+            <b:column col-md="8">#{item.getSnippet().getTitle()}</b:column>
+        </b:row>
+        <b:row>
+            <b:column col-md="4">Descripcion</b:column>
+            <b:column col-md="8">#{item.getSnippet().getDescription()}</b:column>
+        </b:row>
+        <b:row>
+            <b:column col-md="4">Duracion</b:column>
+            <b:column col-md="8">#{item.getContentDetails().getDuration()}</b:column>
+        </b:row>
+        <b:row>
+            <b:column col-md="4">Tamaño</b:column>
+            <b:column col-md="8">#{item.getContentDetails().getDefinition()}</b:column>
+        </b:row>
+        <b:row>
+            <b:column col-md="4">Rating</b:column>
+            <b:column col-md="8"></b:column>
+        </b:row>
+    </b:container>
+</h:body>
+
+</html>
