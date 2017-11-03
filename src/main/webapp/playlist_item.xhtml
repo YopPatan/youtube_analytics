@@ -16,11 +16,15 @@
         </h:column>
         <h:column>
             <f:facet name="header">Titulo</f:facet>
-            #{item.getSnippet().getTitle()}
+            <h:form>
+                <h:commandLink action="video" value="#{item.getSnippet().getTitle()}">
+                    <f:param name="videoId" value="#{item.getId()}" />
+                </h:commandLink>
+            </h:form>
         </h:column>
         <h:column>
             <f:facet name="header">Descripcion</f:facet>
-            #{item.getSnippet().getDescription()}
+            #{item.getSnippet().getShortDescription()}
         </h:column>
     </h:dataTable>
 

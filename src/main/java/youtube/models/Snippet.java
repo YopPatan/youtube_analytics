@@ -16,8 +16,7 @@ public class Snippet {
     }
 
     public String getDescription() {
-        //return this.description;
-        return this.description.substring(0, 100);
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -39,4 +38,9 @@ public class Snippet {
     public void setPosition(Integer position) {
         this.position = position;
     }
+
+    public String getShortDescription() {
+        return this.description.substring(0, 100);
+    }
+
 }

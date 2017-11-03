@@ -4,6 +4,7 @@ public class Statistics {
 
     private Integer viewCount;
     private Integer likeCount;
+    private Integer dislikeCount;
     private Integer commentCount;
 
     public Integer getViewCount() {
@@ -20,6 +21,14 @@ public class Statistics {
 
     public void setLikeCount(Integer likeCount) {
         this.likeCount = likeCount;
+    }
+
+    public Integer getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public void setDislikeCount(Integer dislikeCount) {
+        this.dislikeCount = dislikeCount;
     }
 
     public Integer getCommentCount() {

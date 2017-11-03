@@ -27,6 +27,10 @@
             <b:column col-md="8">#{item.getSnippet().getDescription()}</b:column>
         </b:row>
         <b:row>
+            <b:column col-md="4">Fecha publicacion</b:column>
+            <b:column col-md="8">#{item.getSnippet().getPublishedAt()}</b:column>
+        </b:row>
+        <b:row>
             <b:column col-md="4">Duracion</b:column>
             <b:column col-md="8">#{item.getContentDetails().getDuration()}</b:column>
         </b:row>
@@ -35,8 +39,20 @@
             <b:column col-md="8">#{item.getContentDetails().getDefinition()}</b:column>
         </b:row>
         <b:row>
-            <b:column col-md="4">Rating</b:column>
-            <b:column col-md="8"></b:column>
+            <b:column col-md="4">Visitas</b:column>
+            <b:column col-md="8">#{item.getStatistics().getViewCount()}</b:column>
+        </b:row>
+        <b:row>
+            <b:column col-md="4">Me gusta</b:column>
+            <b:column col-md="8">#{item.getStatistics().getLikeCount()}</b:column>
+        </b:row>
+        <b:row>
+            <b:column col-md="4">No me gusta</b:column>
+            <b:column col-md="8">#{item.getStatistics().getDislikeCount()}</b:column>
+        </b:row>
+        <b:row>
+            <b:column col-md="4">Comentarios</b:column>
+            <b:column col-md="8">#{item.getStatistics().getCommentCount()}</b:column>
         </b:row>
     </b:container>
 </h:body>

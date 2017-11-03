@@ -5,6 +5,7 @@ public class Item {
     private String id;
     private Snippet snippet;
     private ContentDetails contentDetails;
+    private Statistics statistics;
 
     public String getId() {
         return this.id;
@@ -28,5 +29,13 @@ public class Item {
 
     public void setContentDetails(ContentDetails contentDetails) {
         this.contentDetails = contentDetails;
+    }
+
+    public Statistics getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(Statistics statistics) {
+        this.statistics = statistics;
     }
 }
